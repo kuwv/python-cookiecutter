@@ -1,0 +1,13 @@
+{
+    "author": "",
+    "email": "",
+    "project_short_description": "Python package.",
+    "project_name": "Project Name",
+    "project_slug": "{{ 'python-' + cookiecutter.project_name|replace(' ', '-')|lower }}",
+    "module_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_')|lower }}",
+    "minimum_supported_python_version": ["3.5", "3.6", "3.7", "3.8"],
+    "_copy_without_render": [
+        "*.html",
+        "*.js"
+    ]
+}
