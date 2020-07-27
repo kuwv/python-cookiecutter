@@ -1,12 +1,13 @@
-{% set section_separator = "=" * cookiecutter.project_slug | length -%}
-{{ section_separator }}
-{{ cookiecutter.project_slug }}
-{{ section_separator }}
+# {{ cookiecutter.project_name }}
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://travis-ci.org/kuwv/python-compendium.svg?branch=master)](https://travis-ci.org/{{ cookiecutter.username}}/{{ cookiecutter.project_slug }})
-[![codecov](https://codecov.io/gh/kuwv/python-compendium/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.username}}/{{ cookiecutter.project_slug }})
+[![Build Status](https://travis-ci.org/{{ cookiecutter.username }}/{{ cookiecutter.project_slug }}.svg?branch=master)](https://travis-ci.org/{{ cookiecutter.username}}/{{ cookiecutter.project_slug }})
+[![codecov](https://codecov.io/gh/{{ cookiecutter.username }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.username}}/{{ cookiecutter.project_slug }})
 
 ## Overview
 
 {{ cookiecutter.project_short_description}}
+
+## Install
+
+`pip install {{ cookiecutter.module_name }}`
