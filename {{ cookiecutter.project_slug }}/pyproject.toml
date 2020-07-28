@@ -24,8 +24,8 @@ flit = "^2.3.0"
 
 [tool.flit.metadata]
 module = "{{ cookiecutter.module_name }}"
-author = "{{ cookiecutter.author }}""
-author-email = "{{ cookiecutter.email }}""
+author = "{{ cookiecutter.author }}"
+author-email = "{{ cookiecutter.email }}"
 home-page = "https://github.com/kuwv/{{ cookiecutter.project_slug }}"
 requires = []
 
