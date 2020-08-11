@@ -13,4 +13,3 @@ if "{{ cookiecutter.package_manager }}" == 'poetry':
     remove('Pipfile')
 elif "{{ cookiecutter.package_manager }}" == 'pipenv':
     remove('pyproject.toml')
-
