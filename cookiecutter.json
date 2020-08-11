@@ -1,16 +1,16 @@
 {
-    "author": "Jesse P. Johnson",
-    "email": "jpj6652@gmail.com",
-    "username": "kuwv",
-    "package_manager": ["poetry", "pipenv"],
-    "project_name": "Project Name",
-    "project_short_description": "Python package.",
-    "project_slug": "{{ 'python-' + cookiecutter.project_name|replace(' ', '-')|lower }}",
-    "module_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_')|lower }}",
-    "__module_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_')|lower }}",
-    "minimum_supported_python_version": ["3.5", "3.6", "3.7", "3.8"],
-    "_copy_without_render": [
-        "*.html",
-        "*.js"
-    ]
+  "author": "Jesse P. Johnson",
+  "email": "jpj6652@gmail.com",
+  "username": "kuwv",
+  "package_manager": ["poetry", "pipenv"],
+  "project_name": "Project Name",
+  "project_short_description": "Python package.",
+  "project_slug": "{{ 'python-' + cookiecutter.project_name | replace(' ', '-') | lower }}",
+  "module_name": "{{ cookiecutter.project_name | replace(' ', '_') |replace('-', '_') | lower }}",
+  "python_version": ["3.5", "3.6", "3.7", "3.8"],
+  "license": ["Apache-2.0", "BSD-3-Clause", "MIT", "MPL-2.0"],
+  "_copy_without_render": [
+    "*.html",
+    "*.js"
+  ]
 }
