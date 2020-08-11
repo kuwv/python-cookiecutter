@@ -1,4 +1,4 @@
-'''{{ cookiecutter.project_short_description }}'''
+'''{{ cookiecutter.project_description }}'''
 # -*- coding: utf-8 -*-
 
 __author__ = '{{ cookiecutter.author }}'

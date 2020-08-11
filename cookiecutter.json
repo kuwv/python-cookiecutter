@@ -1,10 +1,11 @@
 {
     "author": "",
     "email": "",
-    "username": "",
+    "account": "",
     "project_name": "Project Name",
-    "project_short_description": "Python package.",
+    "project_description": "",
     "project_slug": "{{ 'python-' + cookiecutter.project_name|replace(' ', '-')|lower }}",
+    "license": ["Apache-2.0", "BSD-3", "GPL-3.0-or-later", "MIT", "MPL-2.0"],
     "module_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_')|lower }}",
     "minimum_supported_python_version": ["3.5", "3.6", "3.7", "3.8"],
     "_copy_without_render": [
