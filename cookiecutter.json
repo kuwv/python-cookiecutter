@@ -1,7 +1,7 @@
 {
   "author": "",
   "email": "",
-  "username": "",
+  "account": "",
   "package_manager": ["poetry", "pipenv"],
   "project_name": "Project Name",
   "project_description": "Python package.",
