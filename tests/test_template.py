@@ -1,6 +1,5 @@
 '''Test template deployment.'''
 import pytest
-import textwrap
 
 
 @pytest.fixture
