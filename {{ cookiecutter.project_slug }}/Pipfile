@@ -16,6 +16,7 @@ mkdocs = "*"
 bump2version = "*"
 invoke = "*"
 mkdocs-material = "*"
+mkdocstrings = "*"
 flit = "*"
 
 [packages]
