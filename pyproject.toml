@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "poetry-cookiecutter"
+name = "python-cookiecutter"
 version = "0.1.0"
 description = "Project template for applications using Poetry."
 authors = ["Jesse P. Johnson"]
