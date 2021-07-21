@@ -5,9 +5,9 @@
   "package_manager": ["poetry", "pipenv"],
   "project_name": "Project Name",
   "project_description": "Python package.",
-  "project_slug": "{{ 'python-' + cookiecutter.project_name | replace(' ', '-') | lower }}",
+  "project_slug": "{{ cookiecutter.project_name | replace(' ', '-') | lower }}",
   "module_name": "{{ cookiecutter.project_name | replace(' ', '_') |replace('-', '_') | lower }}",
-  "python_version": ["3.5", "3.6", "3.7", "3.8"],
+  "python_version": ["3.6", "3.7", "3.8", "3.9"],
   "license": ["Apache-2.0", "BSD-3-Clause", "MIT", "MPL-2.0"],
   "_copy_without_render": [
     "*.html",

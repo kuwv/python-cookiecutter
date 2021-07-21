@@ -17,3 +17,10 @@ invoke = "^1.4.1"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.pytest.ini_options]
+norecursedirs = "'{{ cookiecutter.project_slug }}'"
+filterwarnings = [
+    "ignore::DeprecationWarning:invoke.*:",
+    "ignore::DeprecationWarning:_yaml.*:",
+]

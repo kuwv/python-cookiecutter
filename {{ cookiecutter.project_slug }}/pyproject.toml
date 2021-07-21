@@ -1,3 +1,4 @@
+{%- if cookiecutter.package_manager == 'poetry' %}
 [tool.poetry]
 name = "{{ cookiecutter.module_name }}"
 version = "0.1.0"
@@ -8,7 +9,7 @@ authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
 python = "^{{ cookiecutter.python_version }}"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2"
 flake8 = "^3.9.2"
 pytest-cov = "^2.10"
 isort = "^5.9"
@@ -23,6 +24,7 @@ pydocstyle = "^6.1"
 mkdocs-material = "^5.4"
 mkdocstrings = "^0.13.2"
 
+{% endif %}
 [tool.flit.metadata]
 module = "{{ cookiecutter.module_name }}"
 author = "{{ cookiecutter.author }}"
@@ -57,3 +59,9 @@ exclude = '''
   )
 )
 '''
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning:invoke.*:",
+    "ignore::DeprecationWarning:_yaml.*:",
+]

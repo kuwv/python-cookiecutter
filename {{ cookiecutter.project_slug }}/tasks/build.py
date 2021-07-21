@@ -3,9 +3,11 @@
 # license: Apache 2.0, see LICENSE for more details.
 '''Test Task-Runner.'''
 
-from invoke import task
+from typing import Optional
 
-from {{ cookiecutter.module_name }}.__version__ import __version__
+from invoke import Context, task
+
+from {{ cookiecutter.module_name }} import __version__
 
 if 'dev' in __version__ or 'rc' in __version__:
     part = 'build'
@@ -14,7 +16,7 @@ else:
 
 
 @task
-def build(ctx, format=None):  # type: ignore
+def build(ctx, format=None):  # type: (Context, Optional[str]) -> None
     '''Build wheel package.'''
     if format:
         ctx.run("flit build --format={}".format(format))
@@ -23,7 +25,11 @@ def build(ctx, format=None):  # type: ignore
 
 
 @task
-def install(ctx, symlink=True, dev=False):  # type: ignore
+def install(
+    ctx,
+    symlink=True,
+    dev=False
+):  # type: (Context, bool, bool) -> None
     '''Install within environment.'''
     args = []
     if symlink:
@@ -34,9 +40,13 @@ def install(ctx, symlink=True, dev=False):  # type: ignore
 
 
 @task
-def version(  # type: ignore
-    ctx, part=part, tag=False, commit=False, message=None
-):
+def version(
+    ctx,
+    part=part,
+    tag=False,
+    commit=False,
+    message=None
+):  # type: (Context, str, bool, bool, Optional[str]) -> None
     '''Update project version and apply tags.'''
     args = [part]
     if tag:
@@ -54,13 +64,13 @@ def version(  # type: ignore
 
 
 @task
-def publish(ctx):  # type: ignore
+def publish(ctx):  # type: (Context) -> None
     '''Publish project distribution.'''
     ctx.run('flit publish')
 
 
 @task
-def clean(ctx):  # type: ignore
+def clean(ctx):  # type: (Context) -> None
     '''Clean project dependencies and build.'''
     paths = ['dist', 'logs']
     paths.append('**/__pycache__')
