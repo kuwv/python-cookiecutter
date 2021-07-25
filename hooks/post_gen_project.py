@@ -9,8 +9,5 @@ def remove(filepath):
     if os.path.isfile(filepath):
         os.remove(filepath)
 
-if "{{ cookiecutter.package_manager }}" != 'poetry':
-    remove('pyproject.toml')
-
 if "{{ cookiecutter.package_manager }}" != 'pipenv':
     remove('Pipfile')
