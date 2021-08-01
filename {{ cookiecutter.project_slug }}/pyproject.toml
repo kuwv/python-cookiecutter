@@ -10,19 +10,20 @@ python = "^{{ cookiecutter.python_version }}"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
-flake8 = "^3.9.2"
 pytest-cov = "^2.10"
+flake8 = "^3.9.2"
 isort = "^5.9"
 bandit = "^1.6"
 safety = "^1.9"
-mkdocs = "^1.1"
 bump2version = "^1.0"
 invoke = "^1.4"
 flit = "^3.2.0"
 docstr-coverage = "^1.2"
-pydocstyle = "^6.1"
-mkdocs-material = "^5.4"
-mkdocstrings = "^0.13.2"
+mkdocs = "^1.2"
+mkdocs-material = "^7.2"
+mkdocstrings = "^0.15.2"
+mypy = "^0.910"
+black = "^21.7b0"
 
 {% endif %}
 [tool.flit.metadata]
@@ -35,7 +36,7 @@ classifiers = ["License :: OSI Approved :: Apache Software License"]
 
 [tool.isort]
 profile = "black"
-line_length = 80
+line_length = 79
 multi_line_output = 3
 
 [tool.mypy]
@@ -45,6 +46,7 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 
 [tool.black]
+line-length = 79
 include = '\.pyi?$'
 exclude = '''
 

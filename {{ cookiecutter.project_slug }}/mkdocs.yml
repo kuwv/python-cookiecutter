@@ -1,7 +1,7 @@
 ---
 site_name: {{ cookiecutter.project_name }}
 site_author: {{ cookiecutter.author }}
-copyright: copywright (c) 2020 by {{ cookiecutter.author }}.
+copyright: copywright (c) 2021 by {{ cookiecutter.author }}.
 repo_url: https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}
 
 theme:
