@@ -1,4 +1,4 @@
-{%- if cookiecutter.package_manager == 'poetry' %}
+{% if cookiecutter.package_manager == 'poetry' -%}
 [tool.poetry]
 name = "{{ cookiecutter.module_name }}"
 version = "0.1.0"
@@ -25,14 +25,26 @@ mkdocstrings = "^0.15.2"
 mypy = "^0.910"
 black = "^21.7b0"
 
-{% endif %}
+{%- endif %}
 [tool.flit.metadata]
 module = "{{ cookiecutter.module_name }}"
 author = "{{ cookiecutter.author }}"
 author-email = "{{ cookiecutter.email }}"
 home-page = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
 requires = []
-classifiers = ["License :: OSI Approved :: Apache Software License"]
+classifiers = [
+{%- if cookiecutter.license == 'Apache-2.0' %}
+  "License :: OSI Approved :: Apache Software License"
+{%- elif cookiecutter.license == 'AGPL-3.0' %}
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
+{%- elif cookiecutter.license == 'BSD-3-Clause' %}
+  "License :: OSI Approved :: BSD License"
+{%- elif cookiecutter.license == 'MIT' %}
+  "License :: OSI Approved :: MIT License"
+{%- elif cookiecutter.license == 'MPL-2.0' %}
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+{% endif %}
+]
 
 [tool.isort]
 profile = "black"
