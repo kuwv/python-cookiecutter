@@ -1,9 +1,32 @@
+[build-system]
+{% if cookiecutter.package_manager == 'poetry' -%}
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+{%- else %}
+requires = ['setuptools>=40.8.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+{%- endif %}
+
 {% if cookiecutter.package_manager == 'poetry' -%}
 [tool.poetry]
 name = "{{ cookiecutter.module_name }}"
 version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
 authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
+home-page = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
+classifiers = [
+{%- if cookiecutter.license == 'Apache-2.0' %}
+  "License :: OSI Approved :: Apache Software License"
+{%- elif cookiecutter.license == 'AGPL-3.0' %}
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
+{%- elif cookiecutter.license == 'BSD-3-Clause' %}
+  "License :: OSI Approved :: BSD License"
+{%- elif cookiecutter.license == 'MIT' %}
+  "License :: OSI Approved :: MIT License"
+{%- elif cookiecutter.license == 'MPL-2.0' %}
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+{% endif %}
+]
 
 [tool.poetry.dependencies]
 python = "^{{ cookiecutter.python_version }}"
@@ -19,6 +42,7 @@ bump2version = "^1.0"
 invoke = "^1.4"
 flit = "^3.2.0"
 docstr-coverage = "^1.2"
+pydocstyle = {extras = ["toml"], version = "^6.1.1"}
 mkdocs = "^1.2"
 mkdocs-material = "^7.2"
 mkdocstrings = "^0.15.2"
@@ -26,36 +50,29 @@ mypy = "^0.910"
 black = "^21.7b0"
 
 {%- endif %}
-[tool.flit.metadata]
-module = "{{ cookiecutter.module_name }}"
-author = "{{ cookiecutter.author }}"
-author-email = "{{ cookiecutter.email }}"
-home-page = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
-requires = []
-classifiers = [
-{%- if cookiecutter.license == 'Apache-2.0' %}
-  "License :: OSI Approved :: Apache Software License"
-{%- elif cookiecutter.license == 'AGPL-3.0' %}
-  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
-{%- elif cookiecutter.license == 'BSD-3-Clause' %}
-  "License :: OSI Approved :: BSD License"
-{%- elif cookiecutter.license == 'MIT' %}
-  "License :: OSI Approved :: MIT License"
-{%- elif cookiecutter.license == 'MPL-2.0' %}
-  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
-{% endif %}
-]
 
-[tool.isort]
-profile = "black"
-line_length = 79
-multi_line_output = 3
+[[tool.proman.versioning.files]]
+filepath = "pyproject.toml"
+pattern = "version = \"${version}\""
+
+[[tool.proman.versioning.files]]
+filepath = "src/{{ cookiecutter.module_name }}/__init__.py"
+pattern = "__version__ = '${version}'"
+
+[[tool.proman.versioning.files]]
+filepath = "tests/test_version.py"
+pattern = "__version__ == '${version}'"
 
 [tool.mypy]
 warn_redundant_casts = true
 warn_unused_ignores = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+line_length = 79
+multi_line_output = 3
 
 [tool.black]
 line-length = 79
@@ -76,6 +93,6 @@ exclude = '''
 
 [tool.pytest.ini_options]
 filterwarnings = [
-    "ignore::DeprecationWarning:invoke.*:",
-    "ignore::DeprecationWarning:_yaml.*:",
+  "ignore::DeprecationWarning:invoke.*:",
+  "ignore::DeprecationWarning:_yaml.*:",
 ]

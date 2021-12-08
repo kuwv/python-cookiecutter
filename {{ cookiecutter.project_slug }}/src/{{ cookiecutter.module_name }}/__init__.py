@@ -8,7 +8,6 @@ __author__ = '{{ cookiecutter.author }}'
 __title__ = '{{ cookiecutter.module_name }}'
 __version__ = '0.1.0'
 __license__ = '{{ cookiecutter.license }}'
+__all__ = []
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
-
-__all__ = []
