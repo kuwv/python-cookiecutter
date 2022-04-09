@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-cookiecutter"
-version = "0.2.0.dev0"
+version = "0.3.0.dev0"
 description = "Project template for applications using Poetry."
 authors = ["Jesse P. Johnson"]
 license = "Apache-2.0"
