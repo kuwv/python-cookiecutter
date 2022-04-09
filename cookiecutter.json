@@ -2,15 +2,28 @@
   "author": "",
   "email": "",
   "account": "",
+  "python_version": ["3.10", "3.9", "3.8", "3.7", "3.6"],
   "package_manager": ["poetry", "pipenv"],
   "project_name": "Project Name",
   "project_description": "Python package.",
   "project_slug": "{{ cookiecutter.project_name | replace(' ', '-') | lower }}",
   "module_name": "{{ cookiecutter.project_name | replace(' ', '_') | replace('-', '_') | lower }}",
-  "python_version": ["3.6", "3.7", "3.8", "3.9"],
-  "license": ["Apache-2.0", "AGPL-3.0", "BSD-3-Clause", "MIT", "MPL-2.0"],
+  "license": [
+    "unlicensed",
+    "Apache-2.0",
+    "MIT",
+    "MPL-2.0",
+    "AGPL-3.0",
+    "GPL-3.0",
+    "LGPL-3.0"
+  ],
+  "ci": [
+    "github",
+    "travis"
+  ],
   "_copy_without_render": [
     "*.html",
     "*.js"
-  ]
+  ],
+  "_extensions": ["jinja2_time.TimeExtension"]
 }

@@ -19,6 +19,10 @@ classifiers = [
   "License :: OSI Approved :: Apache Software License"
 {%- elif cookiecutter.license == 'AGPL-3.0' %}
   "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
+{%- elif cookiecutter.license == 'LGPL-3.0' %}
+  "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)"
+{%- elif cookiecutter.license == 'GPL-3.0' %}
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
 {%- elif cookiecutter.license == 'BSD-3-Clause' %}
   "License :: OSI Approved :: BSD License"
 {%- elif cookiecutter.license == 'MIT' %}
@@ -49,9 +53,6 @@ black = "^21.7b0"
 
 {%- endif %}
 
-[tool.pydocstyle]
-ignore = ["D203", "D213", "D300"]
-
 [[tool.proman.versioning.files]]
 filepath = "pyproject.toml"
 pattern = "version = \"${version}\""
@@ -64,11 +65,8 @@ pattern = "__version__ = '${version}'"
 filepath = "tests/test_version.py"
 pattern = "__version__ == '${version}'"
 
-[tool.mypy]
-warn_redundant_casts = true
-warn_unused_ignores = true
-disallow_untyped_defs = true
-ignore_missing_imports = true
+[tool.pydocstyle]
+ignore = ["D203", "D213", "D300"]
 
 [tool.isort]
 profile = "black"
@@ -77,6 +75,7 @@ multi_line_output = 3
 
 [tool.black]
 line-length = 79
+skip-string-normalization = true
 include = '\.pyi?$'
 exclude = '''
 
@@ -97,3 +96,9 @@ filterwarnings = [
   "ignore::DeprecationWarning:invoke.*:",
   "ignore::DeprecationWarning:_yaml.*:",
 ]
+
+[tool.mypy]
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
