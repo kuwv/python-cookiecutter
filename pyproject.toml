@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-cookiecutter"
-version = "0.1.0"
+version = "0.2.0.dev0"
 description = "Project template for applications using Poetry."
 authors = ["Jesse P. Johnson"]
 license = "Apache-2.0"
@@ -22,10 +22,6 @@ build-backend = "poetry.masonry.api"
 [[tool.proman.versioning.files]]
 filepath = "pyproject.toml"
 pattern = "version = \"${version}\""
-
-[[tool.proman.versioning.files]]
-filepath = "tests/test_version.py"
-pattern = "__version__ == '${version}'"
 
 [tool.pytest.ini_options]
 norecursedirs = "'{{ cookiecutter.project_slug }}'"
