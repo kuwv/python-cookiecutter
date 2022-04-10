@@ -1,10 +1,10 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: pipenv
+  - package-ecosystem: {{ cookiecutter.package_manager }}
     directory: /
     schedule:
       interval: daily
     labels:
-      - pipenv dependencies
+      - {{ cookiecutter.package_manager }} dependencies
       - triage-board
