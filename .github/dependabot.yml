@@ -1,10 +1,10 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: pipenv
+  - package-ecosystem: poetry
     directory: /
     schedule:
       interval: daily
     labels:
-      - pipenv dependencies
+      - poetry dependencies
       - triage-board
