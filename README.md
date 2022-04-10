@@ -11,3 +11,13 @@ Python project template for instantiating a Poetry with various QA tools.
 ## Provision
 
 `cookiecutter http://github.com/kuwv/poetry-cookiecutter.git`
+
+## Package Managers
+
+### Poetry
+
+Use `Poetry` when developing libraries that require flexible dependency management.
+
+### Pipenv
+
+Use `Pipenv` when developing deployments that require deterministic builds.

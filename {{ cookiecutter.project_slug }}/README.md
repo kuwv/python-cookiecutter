@@ -5,8 +5,10 @@
 {%- endif %}
 {%- if cookiecutter.ci == 'travis' %}
 [![Build Status](https://travis-ci.org/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}.svg?branch=master)](https://travis-ci.org/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }})
-[![codecov](https://codecov.io/gh/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }})
+{%- elif cookiecutter.ci == 'github' %}
+![Build Status](https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}/actions/workflows/main.yml/badge.svg?branch=master)
 {%- endif %}
+[![codecov](https://codecov.io/gh/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }})
 
 ## Overview
 

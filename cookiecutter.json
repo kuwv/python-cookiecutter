@@ -18,12 +18,14 @@
     "LGPL-3.0"
   ],
   "ci": [
+    "none",
     "github",
     "travis"
   ],
   "_copy_without_render": [
     "*.html",
-    "*.js"
+    "*.js",
+    ".github/workflows/main.yml"
   ],
   "_extensions": ["jinja2_time.TimeExtension"]
 }

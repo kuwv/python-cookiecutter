@@ -1,0 +1,79 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"[tool.poetry]
+name = "project_name"
+version = "0.1.0"
+description = "Python package."
+authors = ["Jesse P. Johnson <jpj6652@gmail.com>"]
+home-page = "https://github.com/kuwv/project-name"
+classifiers = [
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+pytest-cov = "^2.10"
+flake8 = "^3.9.2"
+isort = "^5.9"
+bandit = "^1.6"
+safety = "^1.9"
+invoke = "^1.4"
+docstr-coverage = "^1.2"
+pydocstyle = {extras = ["toml"], version = "^6.1.1"}
+mkdocs = "^1.2"
+mkdocs-material = "^7.2"
+mkdocstrings = "^0.15.2"
+mypy = "^0.910"
+black = "^21.7b0"
+
+[[tool.proman.versioning.files]]
+filepath = "pyproject.toml"
+pattern = "version = \"${version}\""
+
+[[tool.proman.versioning.files]]
+filepath = "src/project_name/__init__.py"
+pattern = "__version__ = '${version}'"
+
+[[tool.proman.versioning.files]]
+filepath = "tests/test_version.py"
+pattern = "__version__ == '${version}'"
+
+[tool.pydocstyle]
+ignore = ["D203", "D213", "D300"]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+multi_line_output = 3
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+    | \.git
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.vagrant
+    | _build
+    | dist
+  )
+)
+'''
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  "ignore::DeprecationWarning:invoke.*:",
+  "ignore::DeprecationWarning:_yaml.*:",
+]
+
+[tool.mypy]
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
