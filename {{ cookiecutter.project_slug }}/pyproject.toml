@@ -7,13 +7,13 @@ requires = ['setuptools>=40.8.0', 'wheel']
 build-backend = 'setuptools.build_meta'
 {%- endif -%}
 
-{%- if cookiecutter.package_manager == 'poetry' -%}
+{%- if cookiecutter.package_manager == 'poetry' %}
 [tool.poetry]
 name = "{{ cookiecutter.module_name }}"
 version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
 authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
-home-page = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
+homepage = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
 classifiers = [
 {%- if cookiecutter.license == 'Apache-2.0' %}
   "License :: OSI Approved :: Apache Software License"
@@ -30,6 +30,13 @@ classifiers = [
 {%- elif cookiecutter.license == 'MPL-2.0' %}
   "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
 {% endif %}
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
 ]
 
 [tool.poetry.dependencies]
@@ -49,7 +56,7 @@ mkdocs = "^1.2"
 mkdocs-material = "^7.2"
 mkdocstrings = "^0.15.2"
 mypy = "^0.910"
-black = "^21.7b0"
+black = "^21.1.0"
 
 {%- endif %}
 
