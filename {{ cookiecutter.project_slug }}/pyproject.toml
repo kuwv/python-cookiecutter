@@ -5,11 +5,10 @@ build-backend = "poetry.core.masonry.api"
 {%- else %}
 requires = ['setuptools>=40.8.0', 'wheel']
 build-backend = 'setuptools.build_meta'
-{%- endif -%}
-
-{%- if cookiecutter.package_manager == 'poetry' %}
+{%- endif %}
+{% if cookiecutter.package_manager == 'poetry' %}
 [tool.poetry]
-name = "{{ cookiecutter.module_name }}"
+name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
 authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
@@ -30,13 +29,16 @@ classifiers = [
 {%- elif cookiecutter.license == 'MPL-2.0' %}
   "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
 {% endif %}
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.5",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10"
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10"
+]
+packages = [
+    {include = "{{ cookiecutter.module_name }}", from = "src"},
 ]
 
 [tool.poetry.dependencies]
