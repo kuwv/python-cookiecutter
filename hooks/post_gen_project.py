@@ -1,6 +1,10 @@
+# SPDX-FileCopyrightText: © 2020-2022 Jesse Johnson <jpj6652@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
 """Run cookiecutter post script."""
+
 import os
 import shutil
+
 
 def remove(filepath: str) -> None:
     """Remove selected directory / files."""
@@ -8,6 +12,7 @@ def remove(filepath: str) -> None:
         shutil.rmtree(filepath)
     if os.path.isfile(filepath):
         os.remove(filepath)
+
 
 if '{{ cookiecutter.package_manager }}' != 'pipenv':
     remove('Pipfile')

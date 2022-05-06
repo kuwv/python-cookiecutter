@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# copyright: Copyright (C) [{% now 'utc', '%Y' %}] [{{ cookiecutter.author }}]
-# license: {{ cookiecutter.license }}, see LICENSE.md for more details.
+# SPDX-FileCopyrightText: © {% now 'utc', '%Y' %} {{ cookiecutter.author }} <{{ cookiecutter.email }}>
+# SPDX-License-Identifier: {{ cookiecutter.license }}
 
 import logging
 from typing import List

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: © {% now 'utc', '%Y' %} {{ cookiecutter.author }} <{{ cookiecutter.email }}>
+# SPDX-License-Identifier: {{ cookiecutter.license }}
+"""Provide versioning sanity check."""
+
 from {{ cookiecutter.module_name }} import __version__
 
 
