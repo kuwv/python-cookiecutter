@@ -6,10 +6,73 @@ build-backend = "poetry.core.masonry.api"
 requires = ['setuptools>=40.8.0', 'wheel']
 build-backend = 'setuptools.build_meta'
 {%- endif %}
-{% if cookiecutter.package_manager == 'poetry' %}
+{% if cookiecutter.package_manager == 'pep621' %}
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "0.1.0a0"
+description = "{{ cookiecutter.project_description }}"
+readme = "README.md"
+license = {file = "LICENSE.md"}
+keywords = ["stub"]
+requires-python = ">=3.6.2"
+authors = [{name = "{{ cookiecutter.author }}", email = "{{ cookiecutter.email }}"}]
+maintainers = [{name = "{{ cookiecutter.author }}", email = "{{ cookiecutter.email }}"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+{%- if cookiecutter.license == 'Apache-2.0' %}
+  "License :: OSI Approved :: Apache Software License",
+{%- elif cookiecutter.license == 'AGPL-3.0' %}
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+{%- elif cookiecutter.license == 'LGPL-3.0' %}
+  "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+{%- elif cookiecutter.license == 'GPL-3.0' %}
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+{%- elif cookiecutter.license == 'BSD-3-Clause' %}
+  "License :: OSI Approved :: BSD License",
+{%- elif cookiecutter.license == 'MIT' %}
+  "License :: OSI Approved :: MIT License",
+{%- elif cookiecutter.license == 'MPL-2.0' %}
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+{% endif %}
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Software Development :: Libraries"
+]
+
+[project.urls]
+homepage = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
+
+[project.optional-dependencies]
+build = [
+  "build",
+  "proman-versioning>=0.5.0-alpha.2"
+]
+docs = [
+  "docstr-coverage>=1.2.0",
+]
+test = [
+  "tox>=3.25.0",
+]
+sca = [
+  "mypy>=0.942",
+  "bandit>=1.6.2",
+  # "pylint>=2.9.5"
+]
+style = [
+  "black==22.3.0",
+  "isort>=5.10.1",
+  "flake8>=3.8.3",
+]
+{%- elif cookiecutter.package_manager == 'poetry' %}
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
-version = "0.1.0"
+version = "0.1.0a0"
 description = "{{ cookiecutter.project_description }}"
 authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
 homepage = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
@@ -38,7 +101,7 @@ classifiers = [
   "Programming Language :: Python :: 3.10"
 ]
 packages = [
-    {include = "{{ cookiecutter.module_name }}", from = "src"},
+  {include = "{{ cookiecutter.module_name }}", from = "src"},
 ]
 
 [tool.poetry.dependencies]
@@ -59,7 +122,6 @@ mkdocs-material = "^7.2"
 mkdocstrings = "^0.15.2"
 mypy = "^0.910"
 black = "^21.1.0"
-
 {%- endif %}
 
 [[tool.proman.versioning.files]]

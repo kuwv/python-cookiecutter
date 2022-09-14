@@ -6,7 +6,7 @@ from typing import List
 
 __author__ = '{{ cookiecutter.author }}'
 __title__ = '{{ cookiecutter.module_name }}'
-__version__ = '0.1.0'
+__version__ = '0.1.0a0'
 {%- if cookiecutter.license == 'MPL-2.0' %}
 __license__ = '{{ cookiecutter.license }}'
 {%- endif %}
