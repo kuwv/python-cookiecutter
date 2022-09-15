@@ -14,10 +14,10 @@ def remove(filepath: str) -> None:
         os.remove(filepath)
 
 
-if '{{ cookiecutter.package_manager }}' == 'poetry':
+if '{{ cookiecutter.package_manager }}' != 'poetry':
     remove('MANIFEST.in')
-    remove('setup.cfg')
-    if '{{ cookiecutter.package_manager }}' != 'pipenv':
+    if '{{ cookiecutter.package_manager }}' == 'pep621':
+        remove('setup.cfg')
         remove('Pipfile')
 
 if '{{ cookiecutter.ci }}' != 'travis':
