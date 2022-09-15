@@ -1,10 +1,13 @@
 [build-system]
-{%- if cookiecutter.package_manager == 'poetry' %}
-requires = ["poetry_core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-{%- else %}
+{% if cookiecutter.package_manager == 'pep621' %}
+requires = ['setuptools>=60.0.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+{%- elif cookiecutter.package_manager == 'pipenv' %}
 requires = ['setuptools>=40.8.0', 'wheel']
 build-backend = 'setuptools.build_meta'
+{%- elif cookiecutter.package_manager == 'poetry' %}
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 {%- endif %}
 {% if cookiecutter.package_manager == 'pep621' %}
 [project]
