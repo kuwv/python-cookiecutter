@@ -14,10 +14,14 @@ Python project template for instantiating a Poetry with various QA tools.
 
 ## Package Managers
 
+### Pep621
+
+Use `pep621` when developing libraries and require more hands on control.
+
 ### Poetry
 
-Use `Poetry` when developing libraries that require flexible dependency management.
+Use `poetry` when developing libraries that require flexible dependency management.
 
 ### Pipenv
 
-Use `Pipenv` when developing deployments that require deterministic builds.
+Use `pipenv` when developing deployments that require deterministic builds.
