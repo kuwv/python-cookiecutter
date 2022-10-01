@@ -1,5 +1,5 @@
 [build-system]
-{% if cookiecutter.package_manager == 'pep621' %}
+{%- if cookiecutter.package_manager == 'pep621' %}
 requires = ['setuptools>=60.0.0', 'wheel']
 build-backend = 'setuptools.build_meta'
 {%- elif cookiecutter.package_manager == 'pipenv' %}
@@ -39,7 +39,6 @@ classifiers = [
   "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
 {% endif %}
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.5",
   "Programming Language :: Python :: 3.6",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
@@ -48,23 +47,29 @@ classifiers = [
   "Topic :: Software Development :: Libraries"
 ]
 
-[project.urls]
-homepage = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
-
 [project.optional-dependencies]
 build = [
   "build",
-  "proman-versioning>=0.5.0-alpha.2"
+  "proman-versioning>=0.5.0-alpha.2",
+  "invoke>=1.4",
 ]
 docs = [
   "docstr-coverage>=1.2.0",
+  "pydocstyle[toml]>=6.1.1",
+  "mkdocs>=1.2",
+  "mkdocs-material>=7.2",
+  "mkdocstrings>=0.15.2",
 ]
 test = [
+  "pytest>=6.2",
+  "pytest-cov>=2.10",
   "tox>=3.25.0",
 ]
 sca = [
   "mypy>=0.942",
   "bandit>=1.6.2",
+  "safety>=1.9",
+  "mypy>=0.910",
   # "pylint>=2.9.5"
 ]
 style = [
@@ -72,6 +77,11 @@ style = [
   "isort>=5.10.1",
   "flake8>=3.8.3",
 ]
+
+[project.urls]
+homepage = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
+repository = "https://github.com/{{ cookiecutter.account }}/{{ cookiecutter.project_slug }}"
+
 {%- elif cookiecutter.package_manager == 'poetry' %}
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
@@ -96,7 +106,6 @@ classifiers = [
   "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
 {% endif %}
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.5",
   "Programming Language :: Python :: 3.6",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
