@@ -6,4 +6,5 @@ from {{ cookiecutter.module_name }} import __version__
 
 
 def test_version():
+    """Test versioning."""
     assert __version__ == '0.1.0a0'
