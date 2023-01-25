@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: © {% now 'utc', '%Y' %} {{ cookiecutter.author }} <{{ cookiecutter.email }}>
 # SPDX-License-Identifier: {{ cookiecutter.license }}
-"""Template __init__ file"""
+"""Template '__init__' file."""
 
 import logging
 from typing import List
