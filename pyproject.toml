@@ -29,7 +29,7 @@ classifiers = [
 ]
 dependencies = [
   "cookiecutter>=1.7.2",
-  "jinja2_time"
+  "jinja2-time"
 ]
 
 [project.urls]
@@ -37,9 +37,10 @@ repository = "https://github.com/kuwv/python-fluidstate"
 
 [project.optional-dependencies]
 build = [
-  "invoke>=1.4.1",
   "build",
-  "proman-versioning>=0.5.0-alpha.2"
+  "invoke>=1.4.1",
+  "proman-versioning>=0.7.0a1",
+  "twine"
 ]
 dev = [
   # Test
@@ -49,7 +50,7 @@ dev = [
   # SCA
   "mypy>=0.942",
   "bandit>=1.6.2",
-  "pylint>=2.9.5"
+  "pylint>=2.9.5",
   # Style
   "black==22.3.0",
   "isort>=5.10.1",
@@ -57,10 +58,10 @@ dev = [
 ]
 docs = [
   "docstr-coverage>=1.2.0",
-  "pydocstyle[toml]>=6.1.1",
   "mkdocs>=1.2",
   "mkdocs-material>=7.2",
-  "mkdocstrings>=0.15.2"
+  "mkdocstrings>=0.15.2",
+  "pydocstyle[toml]>=6.1.1"
 ]
 
 [tool.setuptools]
