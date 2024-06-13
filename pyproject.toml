@@ -27,6 +27,7 @@ classifiers = [
 ]
 dependencies = [
   "cookiecutter>=1.7.2"
+  "jinja2_time",
 ]
 
 [project.urls]
