@@ -23,11 +23,13 @@ classifiers = [
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Topic :: Software Development :: Libraries"
 ]
 dependencies = [
-  "cookiecutter>=1.7.2"
-  "jinja2_time",
+  "cookiecutter>=1.7.2",
+  "jinja2_time"
 ]
 
 [project.urls]
@@ -39,23 +41,26 @@ build = [
   "build",
   "proman-versioning>=0.5.0-alpha.2"
 ]
-docs = [
-  "docstr-coverage>=1.2.0",
-]
-test = [
+dev = [
+  # Test
   "pytest<=7.0.0",
   "pytest-cookies>=0.6.1",
   "tox>=3.25.0",
-]
-sca = [
+  # SCA
   "mypy>=0.942",
   "bandit>=1.6.2",
-  # "pylint>=2.9.5"
-]
-style = [
+  "pylint>=2.9.5"
+  # Style
   "black==22.3.0",
   "isort>=5.10.1",
-  "flake8>=3.8.3",
+  "flake8>=3.8.3"
+]
+docs = [
+  "docstr-coverage>=1.2.0",
+  "pydocstyle[toml]>=6.1.1",
+  "mkdocs>=1.2",
+  "mkdocs-material>=7.2",
+  "mkdocstrings>=0.15.2"
 ]
 
 [tool.setuptools]
@@ -96,5 +101,5 @@ pattern = "version = \"${version}\""
 norecursedirs = "'{{ cookiecutter.project_slug }}'"
 filterwarnings = [
     "ignore::DeprecationWarning:invoke.*:",
-    "ignore::DeprecationWarning:_yaml.*:",
+    "ignore::DeprecationWarning:_yaml.*:"
 ]
